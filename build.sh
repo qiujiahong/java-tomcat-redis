@@ -7,8 +7,7 @@ export version=v1.0
 
 docker build --no-cache -t fangle/$name:$version   .
 
-docker tag fangle/$name:$version $name:$version:latest
-
+docker tag fangle/$name:$version fangle/$name:$version:latest
 
 docker push fangle/$name:$version
 docker push fangle/$name:latest

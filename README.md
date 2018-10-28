@@ -7,8 +7,18 @@
 
 ## 文件路径
 
-* /usr/local/redis
-* /usr/local/tomcat/
+* redis安装目录: /usr/local/redis
+* 启动redis: /usr/local/redis/bin/redis.sh
+* tomcat安装目录: /usr/local/tomcat/
+
+## 端口配置
+
+* 26379 redis 哨兵
+* 6379  redis master
+* 6380  redis slave
+* 6381  redis slave
+* 8080 tomcat 端口
+
 
 
 ## docker hub地址
