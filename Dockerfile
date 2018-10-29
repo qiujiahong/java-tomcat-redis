@@ -7,7 +7,7 @@ copy ./files /tmp/
 
 RUN echo "==> start to install base image..." && \
     cd /tmp/soft/  && \
-    yum -y install gcc automake autoconf libtool make && \
+    yum -y install gcc automake autoconf libtool make aclocal autoheader makeinfo cc crontabs && \
     mkdir -p /etc/redis/ && \
     mkdir -p /opt/soft/redis/data && \
     mkdir -p /var/log/redis/ && \
@@ -28,6 +28,20 @@ RUN echo "==> start to install base image..." && \
     rm -rf /usr/local/tomcat/webapps/*  && \
     mkdir /usr/local/tomcat/webapps/ROOT && \
     echo "home" > /usr/local/tomcat/webapps/ROOT/index.html && \
+    rm -rf /usr/local/tomcat/bin/catalina.sh && \
+    cp /tmp/script/catalina.sh /usr/local/tomcat/bin/ && \
+    chmod +x /usr/local/tomcat/bin/catalina.sh && \ 
+    echo "start to install cronolog" && \
+    cd /tmp/soft/ && \
+    echo "1111" && \
+    ls && \
+    tar -xzvf cronolog-1.6.2.tar.gz &&\
+    echo "222" && \
+    ls && \
+    cd cronolog-1.6.2 && \
+    ./configure && \
+    make && \
+    make install && \
     echo "clear packages soft....."  && \
     rm -rf /tmp/soft/  && \
     rm -rf /tmp/script/ && \
